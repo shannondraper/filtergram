@@ -1,10 +1,16 @@
 import React from 'react';
 import $ from 'jquery';
+import ReactLoading from 'react-loading';
 import { 
     BrowserRouter as Router, 
     Route, Link } from 'react-router-dom';
 
+
 // const dbRef = firebase.database().ref('/');
+
+const Loader = () => (
+    <ReactLoading type="spin" color="#65DDF2" height='64' width='64' />
+);
 
 export default class ImageUpload extends React.Component {
 	constructor() {
@@ -38,9 +44,12 @@ export default class ImageUpload extends React.Component {
 	    var storageRef = firebase.storage().ref();
 	    //create a space for the image in the storageRef.child in firebase.
 	    const mainImage = storageRef.child(this.file.files[0].name)
-
+	    this.setState({
+	    	currentImage: '../../../assets/loader.gif'
+	    })
 	    //upload file
 	    mainImage.put(file).then((snapshot) => {
+
 	    	//get url from uploaded image
 	    	mainImage.getDownloadURL().then((url) => {
 	    		console.log(url);
@@ -95,6 +104,7 @@ export default class ImageUpload extends React.Component {
 				<div className="canvas">
 
 					<div className="imgContainer">
+						
 						<img 
 							src={this.state.currentImage} 
 							alt="" 

@@ -83,6 +83,9 @@ nav {
 	.imgContainer {
 		width: 65%;
 		height: 500px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		img {
 			max-height: 500px;
 		}
