@@ -113,7 +113,8 @@ export default class ImageUpload extends React.Component {
     	modal.push(
     	    <div className="modal" style={this.state.toggle ? display : hide}>
     	        <div className="modal-content">
-    	            <span onClick={this.toggle}>X</span>
+    	            
+    	            <a href="" className="close" onClick={this.toggle}></a>
     	            <h3>Your photo looks great!</h3>
     	        </div>
     	        <div className="modalFooter">
@@ -135,9 +136,7 @@ export default class ImageUpload extends React.Component {
 
 
 				<div className="canvas">
-
 					<div className="imgContainer">
-						
 						<img 
 							src={this.state.currentImage} 
 							alt="" 

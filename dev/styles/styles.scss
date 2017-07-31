@@ -116,29 +116,76 @@ nav {
 	transform: translate(-50%, -50%);
 	border: 3px solid $primaryBlue;
 	background-color: #fff;
-	min-height: 200px;
-	height: 30%;
-	min-width: 300px;
-	width: 30%;
-	box-shadow: 0 0 20px rgba(0,0,0,0.5);
-	padding: 10px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.4);
+	padding: 50px;
 	display: block; 
 	text-align: center;
 	h3 {
 		font-size: 26px;
 		font-family: 'Playfair Display', serif;
+		margin: 10px;
 	}
 	.modalFooter {
 		display: flex;
 		flex-direction: column;
 	}
 	a,
-	span {
+	aside {
 		padding: 10px;
 		&:hover {
 			cursor: pointer;
 		}
 	}
+	//style buttons in modal
+	.btn:nth-of-type(1) {
+		background-color: $primaryPurple;
+		width: 70%;
+		margin: 10px auto;	
+		text-decoration: none;
+		text-transform: uppercase;
+		color: white;
+		&:hover {
+			background-color: #7c51cc;
+		}
+	}
+	.btn:nth-of-type(2) {
+		background-color: $primaryBlue;
+		margin: 10px auto;	
+		text-decoration: none;
+		text-transform: uppercase;
+		color: white;
+		width: 70%;
+		&:hover {
+			background-color: #58c7d8;
+		}
+	}
+	//close icon in modal
+	.close {
+	  position: absolute;
+	  right: 10px;
+	  top: 0px;
+	  width: 32px;
+	  height: 32px;
+	  opacity: 0.3;
+	}
+	.close:hover {
+	  opacity: 1;
+	}
+	.close:before, .close:after {
+	  position: absolute;
+	  left: 15px;
+	  content: ' ';
+	  height: 22px;
+	  width: 2px;
+	  background-color: #333;
+	}
+	.close:before {
+	  transform: rotate(45deg);
+	}
+	.close:after {
+	  transform: rotate(-45deg);
+	}
+
 }
 
 
