@@ -43,6 +43,9 @@ class App extends React.Component {
 	      		<div className="view">
 	      			<Route path="/view" component={ImageDownload} />
 	      		</div>
+	      		<footer>
+	      			<p>&copy; Shannon Draper</p>
+	      		</footer>
 	       	</div>
       	</Router>
       )

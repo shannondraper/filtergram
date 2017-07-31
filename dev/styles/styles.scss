@@ -71,13 +71,17 @@ nav {
 
 
 .uploadImage {
-	margin: 25px 0;
-	position: relative;
+	margin: 10px 0px 40px 0px;
 	input {
-		width: 200px;
+		width: 65%;
+	}
+	form {
+		display: flex;
+		justify-content: space-between;
 	}
 }
 .canvas {
+	margin-top: 30px;
 	display: flex;
 	justify-content: space-between;
 	.imgContainer {
@@ -104,6 +108,7 @@ nav {
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
+			margin-bottom: 60px;
 		}
 	}
 	
@@ -241,6 +246,23 @@ input[type=submit] {
 	-moz-column-gap:      5px;
 	column-count:         4;
 	column-gap:           5px;  
+}
+
+// FOOTER /////////////////////////////
+
+footer {
+	text-align: right;
+	width: 100%;
+	background-color: #fff;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	p {
+		// color: grey;
+		font-family: 'Playfair Display', serif;
+		letter-spacing: 0.5px;
+		margin: 0px 40px 10px 40px;
+	}
 }
 
 
