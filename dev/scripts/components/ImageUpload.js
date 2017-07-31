@@ -1,16 +1,19 @@
 import React from 'react';
 import $ from 'jquery';
-import ReactLoading from 'react-loading';
+// import Modal from './modal.js';
 import { 
     BrowserRouter as Router, 
     Route, Link } from 'react-router-dom';
 
 
 // const dbRef = firebase.database().ref('/');
+const display = {
+  display: 'block'
+};
+const hide = {
+  display: 'none'
+};
 
-const Loader = () => (
-    <ReactLoading type="spin" color="#65DDF2" height='64' width='64' />
-);
 
 export default class ImageUpload extends React.Component {
 	constructor() {
@@ -21,13 +24,15 @@ export default class ImageUpload extends React.Component {
 			brightness: '100',
 			saturate: '100',
 			sepia: '0',
-			invert: '0'
+			invert: '0',
+			toggle: false
 		}
 		this.handleFile = this.handleFile.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.resetFilters = this.resetFilters.bind(this);
 		this.saveChange = this.saveChange.bind(this);
+		this.toggle = this.toggle.bind(this);
 	}
 	handleFile(e) {
 		this.setState({
@@ -77,22 +82,50 @@ export default class ImageUpload extends React.Component {
 	}
 	saveChange(e) {
 		e.preventDefault();
+		this.setState(prevState => ({
+			toggle: !prevState.toggle
+		}));
+
 		const photoEdit = {
 			url: this.state.currentImage,
 			contrast: this.state.contrast,
 			brightness: this.state.brightness,
 			saturate: this.state.saturate,
 			sepia: this.state.sepia,
-			invert: this.state.invert
+			invert: this.state.invert,
 		}
 		firebase.database().ref('/').push(photoEdit);
-		console.log('its been saved!')
+		console.log('its been saved!');
+
+
+		//show modal here ///////////////////
+
+	}
+	toggle(e) {
+		e.preventDefault();
+		this.setState(prevState => ({
+			toggle: !prevState.toggle
+		}));
 	}
 	// for in over each object, display image on the page
     render() {
+    	var modal = [];
+    	modal.push(
+    	    <div className="modal" style={this.state.toggle ? display : hide}>
+    	        <div className="modal-content">
+    	            <span onClick={this.toggle}>X</span>
+    	            <h3>Your photo looks great!</h3>
+    	        </div>
+    	        <div className="modalFooter">
+    	            <a className="btn" href="https://filtergram-62c8d.firebaseapp.com/view">View Your Post</a>
+    	            <h2>OR</h2>
+    	            <a className="btn" href="https://filtergram-62c8d.firebaseapp.com/" >Edit Another Photo</a>
+    	        </div>
+    	    </div>
+    	);
 		return (
 			<div>
-
+            	{modal}
 				<div  className="uploadImage" >
 					<form onSubmit={this.handleSubmit}>
 						<input type="file" ref={(ref)=> {this.file = ref}}/>
@@ -182,10 +215,7 @@ export default class ImageUpload extends React.Component {
 								<input type="submit" value="Save Image" className="saveBtn"/>
 							</form>
 						</div>
-
 					</div> {/*closes SideBar */}
-					
-
 				</div> {/*closes Canvas */}
 			</div>
 		)

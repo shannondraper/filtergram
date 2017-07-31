@@ -4,13 +4,13 @@ import {
     BrowserRouter as Router, 
     Route, Link } from 'react-router-dom';
 
+
 export default class ImageDownload extends React.Component {
 	constructor() {
 		super();
 		this.state = {
 			filterData: []
 		}
-		// this.getImages = this.getImages.bind(this);
 	}
 	componentDidMount() {
 		const imageRef = firebase.database().ref('/');
@@ -22,7 +22,7 @@ export default class ImageDownload extends React.Component {
 					key: key,
 					singleData: userImages[key]
 				})
-				console.log(key, userImages[key]);
+				// console.log(key, userImages[key]);
 			}
 			this.setState({
 				filterData
