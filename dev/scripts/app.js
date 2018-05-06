@@ -22,7 +22,7 @@ class App extends React.Component {
 	      		<nav>
 	      			<ul>
 	      				<li>
-	      					<a href="/edit" className="logoBtn"><img src="./assets/logo.png" alt="filtergram logo" /></a>
+	      					<a href="/" className="logoBtn"><img src="./assets/logo.png" alt="filtergram logo" /></a>
 	      				</li>
 	      				<li>
 	      					<h1>Filtergram</h1>

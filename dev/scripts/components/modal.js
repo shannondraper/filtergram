@@ -7,13 +7,10 @@ const hide = {
   display: 'none'
 };
 
-
-
 export default class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
-    
     this.state = {
       toggle: false
     }

@@ -19,7 +19,7 @@ export default class ImageUpload extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			currentImage: 'https://s10.postimg.org/juk46hpop/img_Placeholder.png',
+			currentImage: 'http://shannondraper.com/public/assets/imgPlaceholder.png',
 			contrast: '100',
 			brightness: '100',
 			saturate: '100',
@@ -142,7 +142,7 @@ export default class ImageUpload extends React.Component {
 				</div>
 
 				<div className="sideBar">
-					<div  className="uploadImage" >
+					<div className="uploadImage" >
 						<form onSubmit={this.handleSubmit}>
 							<input type="file" ref={(ref)=> {this.file = ref}}/>
 							<input className="uploadBtn" type="submit" value="upload" />
